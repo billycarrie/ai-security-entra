@@ -1,4 +1,4 @@
-# 🛡️ Microsoft AI Security for SMBs: Entra ID Big Wins
+# Microsoft AI Security for SMBs: Entra ID Big Wins
 
 This is a high-impact guide designed specifically for Small and Medium-Sized Businesses (SMBs).
 
