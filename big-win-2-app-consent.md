@@ -1,43 +1,56 @@
 # Big Win #2: Block Unapproved AI "Shadow IT"
-## Turn Off Default User Consent for Third-Party AI Apps
+## Restrict User App Consent & Require Admin Review
 
 ### Why This Matters
-Employees love productivity shortcuts. If they find a cool new AI tool online (like a PDF summarizer, an AI email writer, or a grammar plugin), they will often click *"Sign in with Microsoft"*. 
+Employees don't need IT's permission to try a new AI tool. They just click "Sign in with Microsoft" on a random AI writing assistant, note-taker, or browser extension, and grant it access using their corporate credentials. In that one click, they may be handing an unvetted third-party app permission to read their mailbox, browse their files, or access their calendar, permanently, and completely outside of IT's visibility.
 
-By default, clicking "Accept" can grant that unverified, third-party AI company full permission to read their employee profile, access their mailbox, and scan files in their OneDrive. This is how corporate data silently leaks out to unapproved third parties.
+This is the "Shadow IT" problem: AI tools your business never approved, quietly connected to your business data. Once that consent is granted, the app doesn't need to hack anyone. It already has the keys.
+
+By default, Entra ID allows every user to consent to these permissions on their own. We need to close that door and put a human in the loop.
 
 ---
 
 ### The Goal
-Block employees from automatically giving outside AI apps access to your company’s internal data, and replace it with a "Request Permission" button. Now, these requests will be sent to the designated IT Admin or Business Owner for approval.
+1. **Turn Off Blanket User Consent:** Stop end users from being able to grant data access permissions to third-party apps on their own.
+2. **Stand Up an Admin Consent Workflow:** Give employees a legitimate, low-friction way to request a new AI tool, so IT/Security can review the permissions being requested before access is granted.
 
 ---
 
 ### Step-by-Step Configuration Guide
 
-#### Step 1: Disable Automatic Third-Party Approvals
+#### Step 1: Restrict User Consent for Applications
 1. Log into the **[Microsoft Entra Admin Center](https://entra.microsoft.com/)**.
-2. On the left menu, click **Identity** > **Applications** > **Enterprise applications**.
-3. Under the Manage section, click **Consent and permissions**.
-4. Click on **User consent settings**.
-5. Select the option: **Do not allow user consent**. 
-6. Click **Save** at the top.
+2. On the left menu, expand **Entra ID** and click **Enterprise applications**.
+3. Under **Security**, click **Consent and permissions**.
+4. Click **User consent settings**.
+5. Under **User consent for applications**, select:
+   * **Do not allow user consent** (Recommended for full lockdown), or
+   * **Allow user consent for apps from verified publishers, for selected permissions** (Recommended if you want a lighter-touch starting point).
+6. Click **Save**.
 
-*INSERT_SCREENSHOT_HERE: Screenshot of User consent settings set to "Do not allow user consent"*
+*INSERT_SCREENSHOT_HERE: Screenshot of the User consent settings panel in Entra ID*
 
-#### Step 2: Turn on the "Request Permission" Button
-1. In that same menu on the left, click **Admin consent settings**.
-2. Under **Admin consent requests**, change the toggle for *"Users can request admin consent to apps they are unable to consent to"* to **Yes**.
-3. Under **Who can review admin consent requests**, select your main IT admin or business owner account.
-4. Set email notifications to **Yes** so you get an alert when an employee wants to use a tool.
-5. Click **Save**.
-
-*INSERT_SCREENSHOT_HERE: Screenshot of Admin consent requests workflow enabled with designated reviewers*
+Best Practice: If you're not ready to fully lock this down, start with the "verified publishers" option first, then tighten to "Do not allow" once your admin consent workflow (Step 2) is live and employees know how to request access.
 
 ---
 
-### Business Impact
-The next time an employee tries to connect a random AI website/ app to their work account, they will see a message saying *"Approval Required."* They can type a brief note explaining why they want it. Your business data stays completely safe until an admin reviews and approves the tool.
+#### Step 2: Set Up the Admin Consent Request Workflow
+1. Staying under **Consent and permissions**, click **Admin consent settings**.
+2. Set **Users can request admin consent to apps they are unable to consent to** to **Yes**.
+3. Under **Select users to review admin consent requests**, add the reviewers:
+   * Recommended reviewers:
+     - IT/Security Group (e.g., PIM Approval or Security Admins group)
+     - Named individuals with clear ownership (avoid a single point of failure)
+4. Set the **email notifications** and **reminder** toggles to **Yes**, so requests don't sit unnoticed.
+5. Click **Save**.
 
-### Note
-This will impact all third party applications that users try to sign into using their company credentials. Not just AI specific tools. Best practice for a change such as this will be to communicate out to end users at least two weeks before change is live of what's coming. Be sure to create a standard workflow of how requests will be processed from intake (Emails routed to Ticketing System) to request decision of approval/ denial (From IT Admin/ Business Owner). 
+*INSERT_SCREENSHOT_HERE: Screenshot of the Admin consent settings panel showing reviewers configured*
+
+6. Communicate the new process to employees: "If you need a new AI tool connected to your Microsoft account, you'll now see a 'Request approval' option instead of a consent screen. IT will review and respond."
+
+---
+
+### Framework Alignment/ Business Impact:
+OWASP LLM Top 10 Alignment: LLM08 (Excessive Agency)
+
+The Standard: This category addresses the risk of granting an AI system, or a plugin/tool connected to it, more permission or autonomy than necessary to do its job. An unreviewed third-party AI app requesting broad Graph API scopes (mail, files, directory data) is a textbook case of excessive agency being granted by default. Requiring admin review before consent ensures every AI integration is scoped to only what it actually needs, and that someone is accountable for approving it.

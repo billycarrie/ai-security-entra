@@ -1,43 +1,65 @@
 # Big Win #3: Shrink the AI "Blast Radius"
-## Clean Up Access Automatically Using Dynamic Security Groups
+## Clean Up Stale Access with Dynamic Groups & Access Reviews
 
 ### Why This Matters
-Generative AI tools can only find files that an employee already has permission to see. The problem? Over time, businesses suffer from "permission creep" where employees get added to folders or email groups for temporary projects and are never removed. 
+Most businesses have "Permission Creep." An employee moves teams, finishes a project, or gets promoted, but the old file share, SharePoint site, or Teams channel access from their previous role never gets removed. For years, that stale access was mostly harmless; nobody was manually digging through thousands of old folders looking for something they technically had rights to.
 
-If an administrative assistant or standard staff member accidentally has access to an old folder containing corporate tax documents or payroll spreadsheets, **an internal AI tool will proudly show them that data if they ask it a related question.**
+AI tools change that math completely. An employee doesn't need to know a confidential file exists or remember where it's stored. They just ask their AI assistant a question, and it will instantly surface anything they technically have permission to see, including access nobody meant for them to still have.
+
+The fix isn't more AI restrictions. It's shrinking the pool of data any single identity can reach in the first place, so that if the AI (or the account itself) is ever misused, there's simply less to find.
 
 ---
 
 ### The Goal
-Clean up group permissions automatically based on an employee's actual job title or department, ensuring your AI tool doesn't accidentally reveal sensitive data to the wrong users.
+1. **Automate Access Assignment:** Use Dynamic Groups so access to files, Teams, and SharePoint sites is automatically tied to attributes like department, job title, or role, not manual, one-off additions that get forgotten.
+2. **Force Regular Cleanup:** Use Access Reviews so stale permissions are automatically flagged and removed on a recurring schedule instead of accumulating forever.
 
 ---
 
 ### Step-by-Step Configuration Guide
 
-#### Step 1: Ensure User Profiles are Clean
-*Before building rules, make sure your employees have the correct **Department** and **Job Title** listed in their Microsoft profiles under the Users menu.*
-
-#### Step 2: Build a Dynamic Group for Sensitive Access
+#### Step 1: Create a Dynamic Group Tied to Role Attributes
 1. Log into the **[Microsoft Entra Admin Center](https://entra.microsoft.com/)**.
-2. On the left menu, go to **Identity** > **Groups** > **All groups**.
+2. On the left menu, expand **Entra ID** and click **Groups**.
 3. Click **New group**.
 4. Set **Group type** to **Security**.
-5. Give it a clear name (e.g., `[Access] Finance Department - Automated Group`).
-6. Change **Membership type** from *Assigned* to **Dynamic User**.
-7. Under **Dynamic user members**, click **Add dynamic query**.
-8. Set up the simple rule:
-   * **Property:** `department`
-   * **Operator:** `Equals`
-   * **Value:** `Finance` (or whichever team you are targeting)
-9. Click **Save** at the top, and then click **Create**.
+5. Give it a clear name, e.g., `SG-Finance-TeamAccess`.
+6. Under **Membership type**, select **Dynamic User**.
+7. Click **Add dynamic query**.
+8. Build a rule based on a clean attribute, for example:
+   * `department Equals "Finance"`
+   * `jobTitle StartsWith "Analyst"`
+9. Click **Save**, then **Create**.
 
-*INSERT_SCREENSHOT_HERE: Screenshot showing Dynamic User query creation with department Equals Finance*
+*INSERT_SCREENSHOT_HERE: Screenshot of the Dynamic membership rule builder in Entra ID*
 
-#### Step 3: Link the Group to Your Sensitive Folders
-1. Use this new group to control access to your sensitive SharePoint sites, Teams channels, or shared drives. 
+   Best Practice: Connect this dynamic group (not individual users) to the SharePoint site, Teams channel, or file share that AI tools like Copilot will index/ reference. When someone changes departments in HR, their access updates automatically, no ticket required.
 
 ---
 
-### Business Impact
-If an employee moves from the Finance team to the Sales team, updating their department in Microsoft automatically strips them of their Finance access. The internal AI instantly forgets they ever had permission, drastically shrinking your internal data exposure risk.
+#### Step 2: Set Up a Recurring Access Review
+1. On the left menu, expand **Identity Governance** and click **Access reviews**.
+2. Click **New access review**.
+3. Under **Select what to review**, choose **Teams + Groups** and select the groups tied to sensitive data (start with the ones connected to AI tools first).
+4. Under **Review scope**, choose **Guest and member users** or narrow to **Guest users only**, depending on your risk priority.
+5. Under **Frequency**, set:
+   * **Recurrence:** Quarterly (Recommended starting point)
+   * **Duration:** 14 days
+6. Under **Reviewers**, select:
+   * **Group owners**, or
+   * A specific manager/security reviewer if the group has no clear owner.
+7. Under **Upon completion settings**:
+   * Set **Auto apply results to resource** to **Enable**.
+   * Set **If reviewers don't respond** to **Remove access**.
+8. Click **Start**.
+
+*INSERT_SCREENSHOT_HERE: Screenshot of the Access Reviews configuration panel showing recurrence and auto-apply settings*
+
+Best Practice: Start with your highest risk groups (finance, HR, executive) rather than trying to review everything at once. Expand the program once the first cycle runs cleanly.
+
+---
+
+### Framework Alignment/ Business Impact:
+OWASP LLM Top 10 Alignment: LLM06 (Sensitive Data Disclosure)
+
+The Standard: This category focuses on the unauthorized preview or extraction of proprietary information. An AI tool is only as safe as the access boundaries of the account asking it questions. By automating access assignment and forcing regular cleanup of stale permissions, you shrink the amount of sensitive data any single compromised or overprivileged identity, and by extension any AI tool acting on their behalf, can surface.
