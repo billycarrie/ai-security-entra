@@ -1,4 +1,4 @@
-# 🛡️ Microsoft AI Security for SMBs: Entra ID Big Wins
+# Microsoft AI Security for SMBs: Entra ID Big Wins
 
 This is a high-impact guide designed specifically for Small and Medium-Sized Businesses (SMBs).
 
@@ -26,7 +26,7 @@ Click into any of the guides below for step-by-step instructions:
 
 ---
 
-## 🛠️ Prerequisites
+## Prerequisites
 To use these guides, your business needs at least one of these standard Microsoft packages:
 * **Microsoft 365 Business Premium**
 * **Microsoft 365 E3**
