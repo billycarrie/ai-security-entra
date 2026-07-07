@@ -28,7 +28,6 @@ The fix isn't more AI restrictions. It's shrinking the pool of data any single i
 7. Click **Add dynamic query**.
 8. Build a rule based on a clean attribute, for example:
    * `department Equals "Finance"`
-   * `jobTitle StartsWith "Analyst"`
 9. Click **Save**, then **Create**.
 
 *INSERT_SCREENSHOT_HERE: Screenshot of the Dynamic membership rule builder in Entra ID*
