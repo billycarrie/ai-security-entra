@@ -39,8 +39,7 @@ Best Practice: If you're not ready to fully lock this down, start with the "veri
 2. Set **Users can request admin consent to apps they are unable to consent to** to **Yes**.
 3. Under **Select users to review admin consent requests**, add the reviewers:
    * Recommended reviewers:
-     - IT/Security Group (e.g., PIM Approval or Security Admins group)
-     - Named individuals with clear ownership (avoid a single point of failure)
+     - Named individuals with the Roles assigned of "Applications Administrator" or "AI Administrator" for clear ownership (avoid a single point of failure)
 4. Set the **email notifications** and **reminder** toggles to **Yes**, so requests don't sit unnoticed.
 5. Click **Save**.
 
