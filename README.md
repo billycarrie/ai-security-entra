@@ -37,3 +37,11 @@ To use these guides, your business needs at least one of these standard Microsof
 * **Microsoft 365 Business Premium**
 * **Microsoft 365 E3**
 *(Both include **Microsoft Entra ID P1**, which gives you all the tools required for these fixes.)*
+
+---
+
+## **Author**
+
+**Billy Carrie** — IAM Engineer | Founding M&A Security Engineer
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/billycarrie/)
