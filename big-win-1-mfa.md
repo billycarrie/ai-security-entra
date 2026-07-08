@@ -32,7 +32,7 @@ Standard text-message (SMS) codes and basic phone prompts are no longer enough. 
 9. Set the **Enable policy** toggle at the bottom to **Report-only** (Recommended to test without locking anyone out) or **On** if you are ready to turn on now.
 10. Click **Create**.
 
-*INSERT_SCREENSHOT_HERE: Screenshot of the Conditional Access Policy configuration panel selecting Phishing-resistant MFA*
+![ai-security-entra-ca-mfa-all-users](screenshots/ai-security-entra-ca-mfa-all-users.png)
 
 ---
 
@@ -41,7 +41,9 @@ Standard text-message (SMS) codes and basic phone prompts are no longer enough. 
 2. On the left menu, expand **Entra ID** and click **Authentication methods**.
 3. Under this section, look at **Authentication strengths** on the left menu. You will see a built-in option called **Phishing-resistant MFA**. This is what we will target for our admins.
 
-*INSERT_SCREENSHOT_HERE: Screenshot showing Authentication methods > Authentication strengths in Entra ID*
+![ai-security-entra-authentication-strength](ai-security-entra-authentication-strength.png)
+
+![ai-security-entra-mfa-admins](ai-security-entra-mfa-admins.png)
 
 4. On the left menu, go to **Protection** > **Conditional Access**.
 5. Click **Create new policy**.
