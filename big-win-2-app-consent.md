@@ -53,3 +53,11 @@ Best Practice: If you're not ready to fully lock this down, start with the "veri
 OWASP LLM Top 10 Alignment: LLM08 (Excessive Agency)
 
 The Standard: This category addresses the risk of granting an AI system, or a plugin/tool connected to it, more permission or autonomy than necessary to do its job. An unreviewed third-party AI app requesting broad Graph API scopes (mail, files, directory data) is a textbook case of excessive agency being granted by default. Requiring admin review before consent ensures every AI integration is scoped to only what it actually needs, and that someone is accountable for approving it.
+
+---
+
+## **Author**
+
+**Billy Carrie** — Founding Security Engineer
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/billycarrie/)
