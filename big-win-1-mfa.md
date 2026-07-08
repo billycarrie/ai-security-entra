@@ -41,9 +41,9 @@ Standard text-message (SMS) codes and basic phone prompts are no longer enough. 
 2. On the left menu, expand **Entra ID** and click **Authentication methods**.
 3. Under this section, look at **Authentication strengths** on the left menu. You will see a built-in option called **Phishing-resistant MFA**. This is what we will target for our admins.
 
-![ai-security-entra-authentication-strength](ai-security-entra-authentication-strength.png)
+![ai-security-entra-authentication-strength](screenshots/ai-security-entra-authentication-strength.png)
 
-![ai-security-entra-mfa-admins](ai-security-entra-mfa-admins.png)
+![ai-security-entra-mfa-admins](screenshots/ai-security-entra-mfa-admins.png)
 
 4. On the left menu, go to **Protection** > **Conditional Access**.
 5. Click **Create new policy**.
