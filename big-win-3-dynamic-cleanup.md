@@ -30,7 +30,7 @@ The fix isn't more AI restrictions. It's shrinking the pool of data any single i
    * `department Equals "Finance"`
 9. Click **Save**, then **Create**.
 
-*INSERT_SCREENSHOT_HERE: Screenshot of the Dynamic membership rule builder in Entra ID*
+![ai-security-entra-dynamic-group](screenshots/ai-security-entra-dynamic-group.png)
 
    Best Practice: Connect this dynamic group (not individual users) to the SharePoint site, Teams channel, or file share that AI tools like Copilot will index/ reference. When someone changes departments in HR, their access updates automatically, no ticket required.
 
@@ -52,7 +52,7 @@ The fix isn't more AI restrictions. It's shrinking the pool of data any single i
    * Set **If reviewers don't respond** to **Remove access**.
 8. Click **Start**.
 
-*INSERT_SCREENSHOT_HERE: Screenshot of the Access Reviews configuration panel showing recurrence and auto-apply settings*
+![ai-security-entra-access-reviews](screenshots/ai-security-entra-access-reviews.png)
 
 Best Practice: Start with your highest risk groups (finance, HR, executive) rather than trying to review everything at once. Expand the program once the first cycle runs cleanly.
 
