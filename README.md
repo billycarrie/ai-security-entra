@@ -42,6 +42,6 @@ To use these guides, your business needs at least one of these standard Microsof
 
 ## **Author**
 
-**Billy Carrie** — IAM Engineer | Founding M&A Security Engineer
+**Billy Carrie** — Founding Security Engineer
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/billycarrie/)
