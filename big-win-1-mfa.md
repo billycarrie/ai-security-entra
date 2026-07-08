@@ -43,8 +43,6 @@ Standard text-message (SMS) codes and basic phone prompts are no longer enough. 
 
 ![ai-security-entra-authentication-strength](screenshots/ai-security-entra-authentication-strength.png)
 
-![ai-security-entra-mfa-admins](screenshots/ai-security-entra-mfa-admins.png)
-
 4. On the left menu, go to **Protection** > **Conditional Access**.
 5. Click **Create new policy**.
 6. Give it a clear name: `CA-MFA-Phishing-Resistant-Admins`.
@@ -69,6 +67,8 @@ Standard text-message (SMS) codes and basic phone prompts are no longer enough. 
    * Choose **Phishing-resistant MFA** from the dropdown.
 11. Set the **Enable policy** toggle at the bottom to **Report-only** (Recommended to test without locking anyone out) or **On** if you are ready to turn on now.
 12. Click **Create**.
+
+![ai-security-entra-mfa-admins](screenshots/ai-security-entra-mfa-admins.png)
 
 #### Framework Alignment/ Business Impact:
 OWASP LLM Top 10 Alignment: LLM06 (Sensitive Data Disclosure)
