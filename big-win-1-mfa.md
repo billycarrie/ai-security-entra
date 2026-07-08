@@ -74,3 +74,11 @@ Standard text-message (SMS) codes and basic phone prompts are no longer enough. 
 OWASP LLM Top 10 Alignment: LLM06 (Sensitive Data Disclosure)
 
 The Standard: This category focuses on the unauthorized preview or extraction of proprietary information. Because internal AI deployments can instantly crawl and surface a company's data footprint, protecting administrative identities with hardware-backed MFA prevents an outside attacker from using your own LLM environment against you.
+
+---
+
+## **Author**
+
+**Billy Carrie** — Founding Security Engineer
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/billycarrie/)
