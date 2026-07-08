@@ -62,3 +62,11 @@ Best Practice: Start with your highest risk groups (finance, HR, executive) rath
 OWASP LLM Top 10 Alignment: LLM06 (Sensitive Data Disclosure)
 
 The Standard: This category focuses on the unauthorized preview or extraction of proprietary information. An AI tool is only as safe as the access boundaries of the account asking it questions. By automating access assignment and forcing regular cleanup of stale permissions, you shrink the amount of sensitive data any single compromised or overprivileged identity, and by extension any AI tool acting on their behalf, can surface.
+
+---
+
+## **Author**
+
+**Billy Carrie** — Founding Security Engineer
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/billycarrie/)
