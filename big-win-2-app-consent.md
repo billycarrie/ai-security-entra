@@ -28,7 +28,7 @@ By default, Entra ID allows every user to consent to these permissions on their 
    * **Allow user consent for apps from verified publishers, for selected permissions** (Recommended if you want a lighter-touch starting point).
 6. Click **Save**.
 
-*INSERT_SCREENSHOT_HERE: Screenshot of the User consent settings panel in Entra ID*
+![ai-security-entra-user-consent](screenshots/ai-security-entra-user-consent.png)
 
 Best Practice: If you're not ready to fully lock this down, start with the "verified publishers" option first, then tighten to "Do not allow" once your admin consent workflow (Step 2) is live and employees know how to request access.
 
@@ -43,7 +43,7 @@ Best Practice: If you're not ready to fully lock this down, start with the "veri
 4. Set the **email notifications** and **reminder** toggles to **Yes**, so requests don't sit unnoticed.
 5. Click **Save**.
 
-*INSERT_SCREENSHOT_HERE: Screenshot of the Admin consent settings panel showing reviewers configured*
+![ai-security-entra-admin-consent](screenshots/ai-security-entra-admin-consent.png)
 
 6. Communicate the new process to employees: "If you need a new AI tool connected to your Microsoft account, you'll now see a 'Request approval' option instead of a consent screen. IT will review and respond."
 
